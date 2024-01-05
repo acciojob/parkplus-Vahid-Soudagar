@@ -8,7 +8,7 @@ public class Payment {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
-    private Boolean isPaymentCompleted;
+    private Boolean paymentCompleted;
     private PaymentMode paymentMode;
     @OneToOne
     @JoinColumn
@@ -19,9 +19,17 @@ public class Payment {
 
     public Payment(int id, Boolean paymentCompleted, PaymentMode paymentMode, Reservation reservation) {
         this.id = id;
-        this.isPaymentCompleted = paymentCompleted;
+        this.paymentCompleted = paymentCompleted;
         this.paymentMode = paymentMode;
         this.reservation = reservation;
+    }
+
+    public Boolean getPaymentCompleted() {
+        return paymentCompleted;
+    }
+
+    public void setPaymentCompleted(Boolean paymentCompleted) {
+        this.paymentCompleted = paymentCompleted;
     }
 
     public int getId() {
@@ -32,13 +40,7 @@ public class Payment {
         this.id = id;
     }
 
-    public Boolean getPaymentCompleted() {
-        return isPaymentCompleted;
-    }
 
-    public void setPaymentCompleted(Boolean paymentCompleted) {
-        isPaymentCompleted = paymentCompleted;
-    }
 
     public PaymentMode getPaymentMode() {
         return paymentMode;
