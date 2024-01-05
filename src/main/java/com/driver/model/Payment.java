@@ -24,7 +24,7 @@ public class Payment {
         this.reservation = reservation;
     }
 
-    public Boolean getPaymentCompleted() {
+    public Boolean isPaymentCompleted() {
         return paymentCompleted;
     }
 
